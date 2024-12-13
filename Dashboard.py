@@ -3,8 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 # Load the cleaned data
-df = pd.read_excel('cleaned_data.xlsx') 
-
+df = pd.read_excel('cleaned_data.xlsx', engine='openpyxl')
 # Sidebar for navigation
 st.sidebar.title("Navigation")
 options = st.sidebar.radio(
