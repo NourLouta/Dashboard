@@ -17,7 +17,6 @@ options = st.sidebar.radio(
         "Sales by Customer Gender",
         "Sales Trend Over Time",
         "Top Sales Days",
-        "Product Price vs Quantity Sold",
         "Correlation Analysis",
         "Sales by Customer Type",
         "Sales Per Order by Customer Type",
@@ -93,11 +92,6 @@ elif options == "Sales Trend Over Time":
 elif options == "Top Sales Days":
     top_days = df.groupby('Invoice Date')['Total Sales'].sum().nlargest(5).reset_index()
     fig = px.bar(top_days, x='Invoice Date', y='Total Sales', title='Top 5 Days with the Highest Sales')
-    st.plotly_chart(fig)
-
-elif options == "Product Price vs Quantity Sold":
-    fig = px.scatter(df, x='Product Price', y='Item QTY per Invoice', trendline='ols',
-                     title='Relationship Between Product Price and Quantity Sold')
     st.plotly_chart(fig)
 
 elif options == "Correlation Analysis":
